@@ -29,14 +29,18 @@ Pendeteksian dini terhadap penyakit diabetes sangat penting untuk mencegah kompl
 - Metrik evaluasi: Akurasi, Precision, Recall, F1-score.
 
 ## Data Understanding
-Paragraf awal bagian ini menjelaskan informasi mengenai data yang Anda gunakan dalam proyek. Sertakan juga sumber atau tautan untuk mengunduh dataset. Contoh: [UCI Machine Learning Repository](https://archive.ics.uci.edu/ml/datasets/Restaurant+%26+consumer+data).
+Dataset diambil dari Kaggle: [Data Penyakit Diabetes](https://www.kaggle.com/datasets/sitirahmahbasri/data-penyakit-diabetes)
 
-Selanjutnya uraikanlah seluruh variabel atau fitur pada data. Sebagai contoh:  
-
-### Variabel-variabel pada Restaurant UCI dataset adalah sebagai berikut:
-- accepts : merupakan jenis pembayaran yang diterima pada restoran tertentu.
-- cuisine : merupakan jenis masakan yang disajikan pada restoran.
-- dst
+### Variabel dalam dataset:
+- `Pregnancies`: Jumlah kehamilan
+- `Glucose`: Kadar glukosa
+- `BloodPressure`: Tekanan darah
+- `SkinThickness`: Ketebalan lipatan kulit
+- `Insulin`: Kadar insulin
+- `BMI`: Indeks massa tubuh
+- `DiabetesPedigreeFunction`: Riwayat diabetes keluarga
+- `Age`: Umur
+- `Outcome`: Label target (1: diabetes, 0: tidak)
 
 **Rubrik/Kriteria Tambahan (Opsional)**:
 - Melakukan beberapa tahapan yang diperlukan untuk memahami data, contohnya teknik visualisasi data atau exploratory data analysis.
