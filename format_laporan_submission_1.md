@@ -47,7 +47,8 @@ Dataset yang digunakan terdiri dari sembilan variabel, yaitu Pregnancies, Glucos
 
 Pertama, analisis statistik deskriptif menunjukkan bahwa variabel Glucose memiliki rata-rata kadar glukosa sekitar nilai yang cukup tinggi, yang menjadi indikator penting dalam diagnosis diabetes. Variabel BMI dan Age juga memiliki rentang nilai yang cukup luas, menunjukkan variasi kondisi fisik dan usia responden. Selanjutnya, pemeriksaan nilai kosong menunjukkan bahwa dataset ini relatif bersih tanpa data yang hilang, sehingga tidak diperlukan imputasi data.
 
-![image](https://github.com/user-attachments/assets/85f3a2b8-7de7-45b7-bb41-f1d05ddfd68a)
+![image](https://github.com/user-attachments/assets/85f3a2b8-7de7-45b7-bb41-f1d05ddfd68a)  
+
 Selanjutnya, analisis korelasi antar variabel menggunakan matriks korelasi dan heatmap memperlihatkan hubungan yang signifikan antara variabel Glucose, BMI, dan Age dengan label Outcome. Hal ini menegaskan bahwa ketiga variabel tersebut memiliki peran penting dalam menentukan risiko diabetes. Variabel lain seperti Pregnancies dan DiabetesPedigreeFunction juga menunjukkan korelasi yang moderat terhadap outcome.
 
 ![image](https://github.com/user-attachments/assets/7357accd-5951-414b-9ddf-afbc8c73508c)  
@@ -55,11 +56,20 @@ Selanjutnya, analisis korelasi antar variabel menggunakan matriks korelasi dan h
 Kemudian pada grafik distribusi label diabetes menunjukkan bahwa jumlah individu tanpa diabetes (label 0) jauh lebih banyak dibandingkan dengan individu yang menderita diabetes (label 1), dengan rasio sekitar 2:1. Ketidakseimbangan ini perlu diperhatikan dalam pemodelan karena dapat mempengaruhi performa algoritma klasifikasi, terutama dalam mendeteksi kasus positif diabetes yang lebih sedikit.
 
 ## Data Preparation
-Pada bagian ini Anda menerapkan dan menyebutkan teknik data preparation yang dilakukan. Teknik yang digunakan pada notebook dan laporan harus berurutan.
 
-**Rubrik/Kriteria Tambahan (Opsional)**: 
-- Menjelaskan proses data preparation yang dilakukan
-- Menjelaskan alasan mengapa diperlukan tahapan data preparation tersebut.
+Pada tahap ini dilakukan beberapa proses persiapan data secara berurutan agar data siap digunakan dalam pemodelan machine learning.
+
+1. **Mengganti Nilai Nol dengan Median Kolom**  
+Beberapa kolom seperti `Glucose`, `BloodPressure`, `SkinThickness`, `Insulin`, dan `BMI` memiliki nilai nol yang tidak valid secara medis. Nilai nol ini digantikan dengan nilai median dari masing-masing kolom untuk menghindari bias dan menjaga distribusi data agar tetap representatif. Median dipilih karena tahan terhadap nilai ekstrem (outlier).
+
+2. **Memisahkan Fitur dan Label**  
+Dataset dipisahkan menjadi fitur (semua kolom kecuali `Outcome`) dan label (`Outcome`). Pemisahan ini penting agar model dapat belajar dari fitur dan memprediksi label secara tepat.
+
+3. **Normalisasi Data**  
+Fitur numerik dinormalisasi menggunakan metode standar sehingga memiliki rata-rata nol dan standar deviasi satu. Normalisasi ini diperlukan agar semua fitur berada pada skala yang sama, sehingga algoritma machine learning dapat bekerja optimal dan lebih stabil.
+
+4. **Pembagian Data Menjadi Training dan Testing Set**  
+Data yang sudah dinormalisasi dibagi menjadi data latih dan data uji dengan proporsi 80:20 menggunakan stratifikasi berdasarkan label `Outcome`. Stratifikasi memastikan proporsi kelas diabetes dan non-diabetes tetap seimbang pada kedua set, sehingga evaluasi model menjadi lebih valid dan menghindari bias akibat ketidakseimbangan kelas.
 
 ## Modeling
 Tahapan ini membahas mengenai model machine learning yang digunakan untuk menyelesaikan permasalahan. Anda perlu menjelaskan tahapan dan parameter yang digunakan pada proses pemodelan.
