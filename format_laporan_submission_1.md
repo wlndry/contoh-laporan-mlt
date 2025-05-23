@@ -2,7 +2,10 @@
 
 ## Domain Proyek
 
-Pada bagian ini, kamu perlu menuliskan latar belakang yang relevan dengan proyek yang diangkat.
+Penyakit diabetes merupakan salah satu penyakit kronis yang paling banyak diderita di seluruh dunia. Berdasarkan data dari World Health Organization (WHO), pada tahun 2021 terdapat sekitar 422 juta orang di seluruh dunia yang mengidap diabetes, dan angka ini diperkirakan akan terus meningkat. Diabetes tidak hanya memengaruhi kualitas hidup pasien, tetapi juga berdampak besar terhadap sistem kesehatan dan ekonomi.
+
+Pendeteksian dini terhadap penyakit diabetes sangat penting untuk mencegah komplikasi jangka panjang. Oleh karena itu, klasifikasi penyakit diabetes menggunakan machine learning menjadi solusi potensial untuk membantu diagnosa awal berbasis data kesehatan pasien.
+
 
 **Rubrik/Kriteria Tambahan (Opsional)**:
 - Jelaskan mengapa dan bagaimana masalah tersebut harus diselesaikan
@@ -12,32 +15,18 @@ Pada bagian ini, kamu perlu menuliskan latar belakang yang relevan dengan proyek
 
 ## Business Understanding
 
-Pada bagian ini, kamu perlu menjelaskan proses klarifikasi masalah.
-
-Bagian laporan ini mencakup:
-
 ### Problem Statements
-
-Menjelaskan pernyataan masalah latar belakang:
-- Pernyataan Masalah 1
-- Pernyataan Masalah 2
-- Pernyataan Masalah n
+- Bagaimana mengklasifikasikan apakah seseorang menderita diabetes berdasarkan data medis yang tersedia?
+- Algoritma machine learning mana yang paling akurat untuk klasifikasi penyakit diabetes?
 
 ### Goals
+- Membangun model klasifikasi untuk mendeteksi penyakit diabetes.
+- Membandingkan performa model seperti Logistic Regression dan Random Forest untuk memilih model terbaik.
 
-Menjelaskan tujuan dari pernyataan masalah:
-- Jawaban pernyataan masalah 1
-- Jawaban pernyataan masalah 2
-- Jawaban pernyataan masalah n
-
-Semua poin di atas harus diuraikan dengan jelas. Anda bebas menuliskan berapa pernyataan masalah dan juga goals yang diinginkan.
-
-**Rubrik/Kriteria Tambahan (Opsional)**:
-- Menambahkan bagian “Solution Statement” yang menguraikan cara untuk meraih goals. Bagian ini dibuat dengan ketentuan sebagai berikut: 
-
-    ### Solution statements
-    - Mengajukan 2 atau lebih solution statement. Misalnya, menggunakan dua atau lebih algoritma untuk mencapai solusi yang diinginkan atau melakukan improvement pada baseline model dengan hyperparameter tuning.
-    - Solusi yang diberikan harus dapat terukur dengan metrik evaluasi.
+### Solution Statements
+- Menggunakan dua algoritma: Logistic Regression dan Random Forest Classifier.
+- Melakukan hyperparameter tuning pada model terbaik.
+- Metrik evaluasi: Akurasi, Precision, Recall, F1-score.
 
 ## Data Understanding
 Paragraf awal bagian ini menjelaskan informasi mengenai data yang Anda gunakan dalam proyek. Sertakan juga sumber atau tautan untuk mengunduh dataset. Contoh: [UCI Machine Learning Repository](https://archive.ics.uci.edu/ml/datasets/Restaurant+%26+consumer+data).
