@@ -72,7 +72,6 @@ Fitur numerik dinormalisasi menggunakan metode standar sehingga memiliki rata-ra
 Data yang sudah dinormalisasi dibagi menjadi data latih dan data uji dengan proporsi 80:20 menggunakan stratifikasi berdasarkan label `Outcome`. Stratifikasi memastikan proporsi kelas diabetes dan non-diabetes tetap seimbang pada kedua set, sehingga evaluasi model menjadi lebih valid dan menghindari bias akibat ketidakseimbangan kelas.
 
 ## Modeling
-## Modeling
 
 Pada tahap pemodelan ini, dua algoritma machine learning telah digunakan untuk menyelesaikan permasalahan klasifikasi, yaitu **Logistic Regression** dan **Random Forest Classifier**. Kedua model dilatih menggunakan data pelatihan dan dievaluasi menggunakan data pengujian untuk menentukan performa terbaik.
 
@@ -116,20 +115,64 @@ Dengan mempertimbangkan kelebihan-kelebihan tersebut, **Random Forest Classifier
 Untuk meningkatkan performa model Random Forest, proses tuning hyperparameter seperti `max_depth`, `min_samples_split`, dan `n_estimators` dapat dilakukan dengan menggunakan teknik seperti Grid Search atau Random Search. Hal ini dapat membantu menemukan kombinasi parameter optimal guna menghasilkan model yang lebih akurat dan efisien.
 
 ## Evaluation
-Pada bagian ini anda perlu menyebutkan metrik evaluasi yang digunakan. Lalu anda perlu menjelaskan hasil proyek berdasarkan metrik evaluasi yang digunakan.
 
-Sebagai contoh, Anda memiih kasus klasifikasi dan menggunakan metrik **akurasi, precision, recall, dan F1 score**. Jelaskan mengenai beberapa hal berikut:
-- Penjelasan mengenai metrik yang digunakan
-- Menjelaskan hasil proyek berdasarkan metrik evaluasi
+Evaluasi model dilakukan menggunakan metrik klasifikasi yaitu **akurasi**, **precision**, **recall**, dan **F1-score**. Metrik ini dipilih karena sesuai dengan karakteristik permasalahan klasifikasi yang melibatkan dua kelas dan adanya kebutuhan untuk memahami keseimbangan antara kesalahan tipe I (false positive) dan tipe II (false negative).
 
-Ingatlah, metrik evaluasi yang digunakan harus sesuai dengan konteks data, problem statement, dan solusi yang diinginkan.
+### Penjelasan Metrik Evaluasi
 
-**Rubrik/Kriteria Tambahan (Opsional)**: 
-- Menjelaskan formula metrik dan bagaimana metrik tersebut bekerja.
+- **Akurasi**: Mengukur seberapa sering model memprediksi kelas dengan benar.
+  \[
+  \text{Accuracy} = \frac{TP + TN}{TP + TN + FP + FN}
+  \]
 
-**---Ini adalah bagian akhir laporan---**
+- **Precision**: Mengukur ketepatan prediksi positif yang dilakukan oleh model.
+  \[
+  \text{Precision} = \frac{TP}{TP + FP}
+  \]
 
-_Catatan:_
-- _Anda dapat menambahkan gambar, kode, atau tabel ke dalam laporan jika diperlukan. Temukan caranya pada contoh dokumen markdown di situs editor [Dillinger](https://dillinger.io/), [Github Guides: Mastering markdown](https://guides.github.com/features/mastering-markdown/), atau sumber lain di internet. Semangat!_
-- Jika terdapat penjelasan yang harus menyertakan code snippet, tuliskan dengan sewajarnya. Tidak perlu menuliskan keseluruhan kode project, cukup bagian yang ingin dijelaskan saja.
+- **Recall**: Mengukur seberapa banyak data positif yang berhasil dikenali oleh model.
+  \[
+  \text{Recall} = \frac{TP}{TP + FN}
+  \]
+
+- **F1-score**: Rata-rata harmonis dari precision dan recall, berguna saat terdapat trade-off antara keduanya.
+  \[
+  \text{F1-score} = 2 \cdot \frac{Precision \cdot Recall}{Precision + Recall}
+  \]
+
+### Hasil Evaluasi
+
+| Model                | Akurasi | Precision | Recall | F1-Score |
+|---------------------|---------|-----------|--------|----------|
+| Logistic Regression | 0.80    | 0.75–0.81 | 0.61–0.90 | 0.67–0.85 |
+| Random Forest       | 0.98    | 0.98–0.99 | 0.98–0.99 | 0.98–0.99 |
+
+**Catatan:**
+- Nilai precision, recall, dan f1-score dituliskan dalam rentang karena berbeda untuk tiap kelas (0 dan 1).
+- Logistic Regression menunjukkan performa yang baik pada kelas mayoritas (kelas 0), tetapi kurang optimal dalam mendeteksi kelas minoritas (kelas 1).
+- Sebaliknya, **Random Forest Classifier** memberikan performa sangat tinggi dan seimbang di kedua kelas, dengan akurasi mencapai 98%.
+
+### Interpretasi Confusion Matrix
+
+- **Logistic Regression**:
+  - True Positive (TP): 83
+  - True Negative (TN): 236
+  - False Positive (FP): 27
+  - False Negative (FN): 54
+
+- **Random Forest Classifier**:
+  - TP: 134
+  - TN: 260
+  - FP: 3
+  - FN: 3
+
+Random Forest berhasil mengurangi kesalahan klasifikasi secara signifikan pada kedua kelas dibandingkan Logistic Regression.
+
+### Kesimpulan
+
+Berdasarkan evaluasi, **Random Forest Classifier dipilih sebagai model terbaik** karena:
+
+- Memberikan **akurasi sangat tinggi (98%)**.
+- Menyeimbangkan precision dan recall dengan sangat baik di kedua kelas.
+- Memiliki jumlah kesalahan klasifikasi yang sangat rendah (baik false positive maupun false negative).
 
