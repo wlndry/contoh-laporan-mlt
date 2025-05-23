@@ -72,12 +72,48 @@ Fitur numerik dinormalisasi menggunakan metode standar sehingga memiliki rata-ra
 Data yang sudah dinormalisasi dibagi menjadi data latih dan data uji dengan proporsi 80:20 menggunakan stratifikasi berdasarkan label `Outcome`. Stratifikasi memastikan proporsi kelas diabetes dan non-diabetes tetap seimbang pada kedua set, sehingga evaluasi model menjadi lebih valid dan menghindari bias akibat ketidakseimbangan kelas.
 
 ## Modeling
-Tahapan ini membahas mengenai model machine learning yang digunakan untuk menyelesaikan permasalahan. Anda perlu menjelaskan tahapan dan parameter yang digunakan pada proses pemodelan.
+## Modeling
 
-**Rubrik/Kriteria Tambahan (Opsional)**: 
-- Menjelaskan kelebihan dan kekurangan dari setiap algoritma yang digunakan.
-- Jika menggunakan satu algoritma pada solution statement, lakukan proses improvement terhadap model dengan hyperparameter tuning. **Jelaskan proses improvement yang dilakukan**.
-- Jika menggunakan dua atau lebih algoritma pada solution statement, maka pilih model terbaik sebagai solusi. **Jelaskan mengapa memilih model tersebut sebagai model terbaik**.
+Pada tahap pemodelan ini, dua algoritma machine learning telah digunakan untuk menyelesaikan permasalahan klasifikasi, yaitu **Logistic Regression** dan **Random Forest Classifier**. Kedua model dilatih menggunakan data pelatihan dan dievaluasi menggunakan data pengujian untuk menentukan performa terbaik.
+
+### 1. Logistic Regression
+
+- **Parameter yang digunakan**:
+  - `max_iter=1000`: Menentukan jumlah maksimum iterasi untuk mencapai konvergensi.
+
+- **Kelebihan**:
+  - Cepat dan efisien untuk dataset berukuran besar.
+  - Mudah diinterpretasikan karena koefisien menunjukkan pengaruh fitur terhadap output.
+  - Bekerja baik untuk hubungan linier antara fitur dan target.
+
+- **Kekurangan**:
+  - Kurang mampu menangkap hubungan non-linear dalam data.
+  - Rentan terhadap multikolinearitas antar fitur.
+
+### 2. Random Forest Classifier
+
+- **Parameter yang digunakan**:
+  - `n_estimators=100`: Menentukan jumlah pohon dalam ensemble.
+  - `random_state=42`: Untuk memastikan hasil yang reproducible.
+
+- **Kelebihan**:
+  - Mampu menangani data yang kompleks dan relasi non-linear antar fitur.
+  - Robust terhadap outlier dan overfitting karena menggunakan metode ensemble.
+  - Memiliki performa prediksi yang umumnya baik tanpa banyak tuning parameter.
+
+- **Kekurangan**:
+  - Waktu pelatihan dan prediksi cenderung lebih lama dibanding model yang lebih sederhana.
+  - Interpretabilitas lebih rendah dibandingkan model linear seperti Logistic Regression.
+
+### Pemilihan Model Terbaik
+
+Setelah dilakukan evaluasi menggunakan metrik akurasi, precision, recall, dan F1-score, model **Random Forest Classifier** menunjukkan performa yang lebih baik secara konsisten dibandingkan Logistic Regression. Random Forest dapat menangkap hubungan kompleks dalam data dan lebih tahan terhadap overfitting, sehingga lebih cocok digunakan dalam konteks permasalahan ini.
+
+Dengan mempertimbangkan kelebihan-kelebihan tersebut, **Random Forest Classifier dipilih sebagai model terbaik** dalam menyelesaikan permasalahan klasifikasi ini.
+
+### Pengembangan Model Selanjutnya
+
+Untuk meningkatkan performa model Random Forest, proses tuning hyperparameter seperti `max_depth`, `min_samples_split`, dan `n_estimators` dapat dilakukan dengan menggunakan teknik seperti Grid Search atau Random Search. Hal ini dapat membantu menemukan kombinasi parameter optimal guna menghasilkan model yang lebih akurat dan efisien.
 
 ## Evaluation
 Pada bagian ini anda perlu menyebutkan metrik evaluasi yang digunakan. Lalu anda perlu menjelaskan hasil proyek berdasarkan metrik evaluasi yang digunakan.
