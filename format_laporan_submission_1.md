@@ -2,16 +2,22 @@
 
 ## Domain Proyek
 
-Penyakit diabetes merupakan salah satu penyakit kronis yang paling banyak diderita di seluruh dunia. Berdasarkan data dari World Health Organization (WHO), pada tahun 2021 terdapat sekitar 422 juta orang di seluruh dunia yang mengidap diabetes, dan angka ini diperkirakan akan terus meningkat. Diabetes tidak hanya memengaruhi kualitas hidup pasien, tetapi juga berdampak besar terhadap sistem kesehatan dan ekonomi.
+Penyakit diabetes merupakan salah satu penyakit kronis yang paling umum dan berdampak luas secara global. Berdasarkan laporan dari **World Health Organization (WHO)**, pada tahun 2021 tercatat lebih dari **422 juta orang di seluruh dunia** hidup dengan diabetes, dan jumlah ini diprediksi akan terus meningkat secara signifikan dalam beberapa dekade ke depan [1]. Diabetes tidak hanya berdampak pada kualitas hidup individu yang mengidapnya, tetapi juga memberikan beban ekonomi dan sosial yang besar terhadap sistem kesehatan masyarakat, terutama di negara berkembang.
 
-Pendeteksian dini terhadap penyakit diabetes sangat penting untuk mencegah komplikasi jangka panjang. Oleh karena itu, klasifikasi penyakit diabetes menggunakan machine learning menjadi solusi potensial untuk membantu diagnosa awal berbasis data kesehatan pasien.
+Deteksi dini terhadap penyakit diabetes sangat penting untuk mencegah komplikasi jangka panjang, seperti penyakit kardiovaskular, gagal ginjal, gangguan penglihatan, dan amputasi anggota tubuh. Namun, dalam praktik klinis, proses deteksi dini sering kali masih mengandalkan prosedur manual dan hasil uji laboratorium yang memerlukan waktu serta biaya yang tidak sedikit. Oleh karena itu, diperlukan pendekatan yang lebih efisien, akurat, dan terjangkau dalam mendeteksi penyakit ini pada tahap awal.
 
+Dalam konteks ini, penerapan **machine learning** sebagai alat bantu diagnostik telah menjadi fokus banyak penelitian terbaru. Machine learning memungkinkan pemodelan hubungan kompleks antara fitur-fitur kesehatan pasien (seperti kadar glukosa, tekanan darah, dan indeks massa tubuh) dengan probabilitas terkena diabetes. Algoritma klasifikasi, khususnya, telah terbukti mampu mempelajari pola dalam data medis untuk memberikan prediksi yang akurat terkait status diabetes pasien [2][3].
 
-**Rubrik/Kriteria Tambahan (Opsional)**:
-- Jelaskan mengapa dan bagaimana masalah tersebut harus diselesaikan
-- Menyertakan hasil riset terkait atau referensi. Referensi yang diberikan harus berasal dari sumber yang kredibel dan author yang jelas.
-- Format Referensi dapat mengacu pada penulisan sitasi [IEEE](https://journals.ieeeauthorcenter.ieee.org/wp-content/uploads/sites/7/IEEE_Reference_Guide.pdf), [APA](https://www.mendeley.com/guides/apa-citation-guide/) atau secara umum seperti [di sini](https://penerbitdeepublish.com/menulis-buku-membuat-sitasi-dengan-mudah/)
-- Sumber yang bisa digunakan [Scholar](https://scholar.google.com/)
+Dengan adanya model prediktif berbasis machine learning, profesional medis dapat dibantu dalam membuat keputusan lebih cepat dan objektif, serta meningkatkan peluang intervensi medis secara dini. Hal ini bukan hanya dapat menyelamatkan nyawa, tetapi juga mengurangi biaya pengobatan jangka panjang secara signifikan.
+
+### Referensi
+
+[1] World Health Organization, “Diabetes,” *World Health Organization*, 2021. [Online]. Available: https://www.who.int/news-room/fact-sheets/detail/diabetes
+
+[2] P. Kavakiotis, O. Tsave, A. Salifoglou, N. Maglaveras, I. Vlahavas, and I. Chouvarda, "Machine Learning and Data Mining Methods in Diabetes Research," *Computational and Structural Biotechnology Journal*, vol. 15, pp. 104–116, 2017. doi: [10.1016/j.csbj.2016.12.005](https://doi.org/10.1016/j.csbj.2016.12.005)
+
+[3] T. Santhanam and M. Padmavathi, "Application of K-means and Genetic Algorithms for Dimension Reduction by Integrating SVM for Diabetes Diagnosis," *Procedia Computer Science*, vol. 47, pp. 76–83, 2015. doi: [10.1016/j.procs.2015.03.180](https://doi.org/10.1016/j.procs.2015.03.180)
+
 
 ## Business Understanding
 
