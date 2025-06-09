@@ -142,23 +142,18 @@ Evaluasi model dilakukan menggunakan metrik klasifikasi yaitu **akurasi**, **pre
 ### Penjelasan Metrik Evaluasi
 
 - **Akurasi**:  
-  \[
-  \text{Accuracy} = \frac{TP + TN}{TP + TN + FP + FN}
-  \]
+  $$Accuracy = \frac{TP + TN}{TP + TN + FP + FN}$$
 
 - **Precision**:  
-  \[
-  \text{Precision} = \frac{TP}{TP + FP}
-  \]
+  $$Precision = \frac{TP}{TP + FP}$$
 
 - **Recall**:  
-  \[
-  \text{Recall} = \frac{TP}{TP + FN}
-  \]
+  $$Recall = \frac{TP}{TP + FN}$$
 
 - **F1-score**:  
-  \[
-  \te
+  $$
+  F1\text{-score} = 2 \times \frac{Precision \times Recall}{Precision + Recall}
+  $$
 
 ### Hasil Evaluasi
 
