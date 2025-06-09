@@ -227,12 +227,16 @@ Pada proyek ini, digunakan dua metrik evaluasi utama yang disesuaikan dengan mas
 1. **Precision dan Recall (Content-Based Filtering)**  
    Precision mengukur seberapa banyak rekomendasi yang relevan dari seluruh rekomendasi yang diberikan, sedangkan recall mengukur seberapa banyak rekomendasi yang relevan berhasil ditemukan dari seluruh film yang relevan.  
    Formula:  
-   \[
-   \text{Precision} = \frac{\text{Jumlah rekomendasi relevan}}{\text{Jumlah total rekomendasi}}
-   \]  
-   \[
-   \text{Recall} = \frac{\text{Jumlah rekomendasi relevan}}{\text{Jumlah film relevan di dataset}}
-   \]  
+
+
+$$
+\text{Precision} = \frac{\text{Jumlah rekomendasi relevan}}{\text{Jumlah total rekomendasi}}
+$$
+
+$$
+\text{Recall} = \frac{\text{Jumlah rekomendasi relevan}}{\text{Jumlah film relevan di dataset}}
+$$
+
    Metrik ini penting untuk mengukur akurasi personalisasi rekomendasi berdasarkan kesamaan genre antara film yang direkomendasikan dan film asli yang diminati pengguna.
 
 2. **Korelasi Spearman (Collaborative Filtering)**  
