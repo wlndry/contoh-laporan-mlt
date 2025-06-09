@@ -95,6 +95,9 @@ Pada tahap pemodelan ini, dua algoritma machine learning telah digunakan untuk m
 - **Parameter yang digunakan**:
   - `max_iter=1000`: Menentukan jumlah maksimum iterasi untuk mencapai konvergensi.
 
+- **Cara kerja**:  
+  Logistic Regression memodelkan probabilitas kelas target dengan menggunakan fungsi logit, yang mengubah kombinasi linier dari fitur menjadi nilai probabilitas antara 0 dan 1 melalui fungsi sigmoid. Model belajar bobot (koefisien) fitur melalui optimisasi untuk meminimalkan loss function.
+
 - **Kelebihan**:
   - Cepat dan efisien untuk dataset berukuran besar.
   - Mudah diinterpretasikan karena koefisien menunjukkan pengaruh fitur terhadap output.
@@ -109,6 +112,9 @@ Pada tahap pemodelan ini, dua algoritma machine learning telah digunakan untuk m
 - **Parameter yang digunakan**:
   - `n_estimators=100`: Menentukan jumlah pohon dalam ensemble.
   - `random_state=42`: Untuk memastikan hasil yang reproducible.
+
+- **Cara kerja**:  
+  Random Forest membangun banyak pohon keputusan (decision trees) secara acak dan independen pada subset data dan fitur yang berbeda. Setiap pohon memberikan prediksi, lalu hasil akhir ditentukan dengan metode voting mayoritas untuk klasifikasi. Metode ensemble ini membantu mengurangi overfitting dan meningkatkan akurasi.
 
 - **Kelebihan**:
   - Mampu menangani data yang kompleks dan relasi non-linear antar fitur.
