@@ -97,11 +97,34 @@ Untuk memahami karakteristik data lebih dalam, dilakukan eksplorasi data seperti
 
 
 ## Data Preparation
-Pada bagian ini Anda menerapkan dan menyebutkan teknik data preparation yang dilakukan. Teknik yang digunakan pada notebook dan laporan harus berurutan.
 
-**Rubrik/Kriteria Tambahan (Opsional)**: 
-- Menjelaskan proses data preparation yang dilakukan
-- Menjelaskan alasan mengapa diperlukan tahapan data preparation tersebut.
+Tahapan data preparation dalam proyek ini dilakukan secara sistematis untuk memastikan data siap digunakan dalam pemodelan sistem rekomendasi. Proses utama yang dilakukan adalah sebagai berikut:
+
+1. **Penggabungan Dataset**  
+   Dataset film (`movies`) digabung dengan dataset `credits` menggunakan kolom `id` pada `movies` dan `movie_id` pada `credits`. Penggabungan ini penting untuk mendapatkan informasi lengkap tentang film, termasuk data pemeran dan kru yang tidak terdapat dalam dataset utama.
+
+2. **Pemilihan Kolom Penting**  
+   Setelah penggabungan, hanya kolom-kolom yang relevan untuk pemodelan dipilih, yaitu `id`, `title`, `overview`, `genres`, `keywords`, `cast`, `crew`, `vote_average`, dan `vote_count`. Ini membantu memfokuskan analisis pada fitur yang berkontribusi langsung pada sistem rekomendasi.
+
+3. **Penghapusan Data yang Memiliki Missing Value**  
+   Setelah kolom penting dipilih, dilakukan pemeriksaan nilai yang hilang (missing values) pada data. Beberapa baris ditemukan memiliki nilai kosong khususnya pada kolom `overview`, `runtime`, atau `release_date`. Baris-baris yang memiliki nilai kosong tersebut dihapus agar tidak mengganggu proses pemodelan, terutama dalam analisis berbasis teks dan perhitungan skor.
+
+4. **Parsing dan Ekstraksi Data Teks**  
+   Beberapa kolom seperti `genres`, `keywords`, `cast`, dan `crew` berisi data dalam format string JSON yang perlu diubah menjadi format teks yang mudah diproses. Fungsi `parse_names` digunakan untuk mengekstrak nama-nama dari list JSON tersebut, misalnya nama genre, kata kunci, atau nama pemeran utama (5 teratas) dan sutradara dari kru.
+
+5. **Penggabungan Fitur Deskriptif**  
+   Fitur-fitur seperti `overview`, `genres`, `keywords`, `cast`, dan `crew` digabung menjadi satu kolom `description`. Kolom ini berfungsi sebagai representasi teks gabungan yang akan digunakan dalam metode content-based filtering. Penggabungan ini penting agar model dapat menangkap informasi lengkap dari berbagai aspek film secara terpadu.
+
+6. **Penanganan Missing Values pada Teks**  
+   Untuk memastikan proses vektorisasi teks berjalan lancar, nilai kosong pada kolom deskriptif seperti `overview`, `genres`, `keywords`, `cast`, dan `crew` diisi dengan string kosong (`''`), sebagai tindakan tambahan setelah penghapusan data utama yang memiliki missing values.
+
+**Alasan Tahapan Data Preparation**:  
+- Penggabungan dan pemilihan kolom penting memastikan hanya data yang relevan diproses sehingga efisien dan fokus pada fitur yang berkontribusi dalam rekomendasi.  
+- Penghapusan missing values mencegah error dalam pemrosesan dan menjaga integritas data.  
+- Parsing data JSON menjadi teks memudahkan analisis teks dan penggunaan algoritma berbasis teks seperti TF-IDF.  
+- Penggabungan fitur deskriptif membuat model dapat memanfaatkan informasi lengkap secara simultan, meningkatkan kualitas rekomendasi content-based.  
+- Penanganan nilai kosong dalam teks penting untuk menjaga kompatibilitas dengan metode NLP (Natural Language Processing) seperti TF-IDF Vectorization.
+
 
 ## Modeling
 Tahapan ini membahas mengenai model sisten rekomendasi yang Anda buat untuk menyelesaikan permasalahan. Sajikan top-N recommendation sebagai output.
