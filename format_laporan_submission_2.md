@@ -66,17 +66,35 @@ Kedua pendekatan ini saling melengkapi: Content-Based membantu memberikan rekome
 
 
 ## Data Understanding
-Paragraf awal bagian ini menjelaskan informasi mengenai jumlah data, kondisi data, dan informasi mengenai data yang digunakan. Sertakan juga sumber atau tautan untuk mengunduh dataset. Contoh: [UCI Machine Learning Repository](https://archive.ics.uci.edu/ml/datasets/Restaurant+%26+consumer+data).
 
-Selanjutnya, uraikanlah seluruh variabel atau fitur pada data. Sebagai contoh:  
+Dataset yang digunakan dalam proyek ini berasal dari TMDB (The Movie Database) dan berisi metadata film dengan total 4.803 entri dan 20 kolom fitur yang mencakup berbagai aspek film seperti anggaran, genre, tanggal rilis, popularitas, hingga rating dan ulasan pengguna. Secara keseluruhan, dataset memiliki jumlah data yang cukup besar untuk membangun model rekomendasi yang andal. Namun, terdapat beberapa kolom yang memiliki nilai kosong, misalnya kolom `homepage` yang memiliki 3.091 nilai kosong dan `tagline` dengan 844 nilai kosong, serta beberapa kolom lain seperti `overview`, `release_date`, dan `runtime` yang juga memiliki nilai hilang dalam jumlah kecil. Kondisi ini menandakan bahwa proses pembersihan dan penanganan missing values perlu dilakukan agar data siap digunakan untuk analisis dan pemodelan.
 
-Variabel-variabel pada Restaurant UCI dataset adalah sebagai berikut:
-- accepts : merupakan jenis pembayaran yang diterima pada restoran tertentu.
-- cuisine : merupakan jenis masakan yang disajikan pada restoran.
-- dst
+Dataset ini dapat diunduh melalui tautan berikut: [TMDB Movie Metadata Dataset](https://www.kaggle.com/datasets/tmdb/tmdb-movie-metadata).
 
-**Rubrik/Kriteria Tambahan (Opsional)**:
-- Melakukan beberapa tahapan yang diperlukan untuk memahami data, contohnya teknik visualisasi data beserta insight atau exploratory data analysis.
+Variabel-variabel utama dalam dataset ini meliputi:  
+- **budget**: Anggaran pembuatan film (dalam dolar).  
+- **genres**: Genre film yang dikategorikan (seperti Action, Drama, dll).  
+- **homepage**: URL situs resmi film (banyak yang kosong).  
+- **id**: ID unik setiap film.  
+- **keywords**: Kata kunci yang mendeskripsikan film.  
+- **original_language**: Bahasa asli film.  
+- **original_title**: Judul asli film.  
+- **overview**: Ringkasan atau sinopsis film.  
+- **popularity**: Skor popularitas film berdasarkan berbagai metrik.  
+- **production_companies**: Perusahaan produksi film.  
+- **production_countries**: Negara tempat produksi film.  
+- **release_date**: Tanggal rilis film.  
+- **revenue**: Pendapatan film (dalam dolar).  
+- **runtime**: Durasi film (dalam menit).  
+- **spoken_languages**: Bahasa yang digunakan dalam film.  
+- **status**: Status rilis film (contoh: Released).  
+- **tagline**: Kalimat singkat promosi film (banyak kosong).  
+- **title**: Judul film.  
+- **vote_average**: Rata-rata rating pengguna.  
+- **vote_count**: Jumlah suara/rating yang diberikan.
+
+Untuk memahami karakteristik data lebih dalam, dilakukan eksplorasi data seperti visualisasi distribusi genre, analisis panjang sinopsis, dan pemeriksaan korelasi antar fitur numerik. Hasil eksplorasi membantu mengidentifikasi pola dan anomali pada data, yang menjadi dasar penting untuk tahap pemodelan sistem rekomendasi.
+
 
 ## Data Preparation
 Pada bagian ini Anda menerapkan dan menyebutkan teknik data preparation yang dilakukan. Teknik yang digunakan pada notebook dan laporan harus berurutan.
