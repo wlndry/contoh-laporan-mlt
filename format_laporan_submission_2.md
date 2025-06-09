@@ -195,15 +195,22 @@ Collaborative Filtering menggunakan interaksi pengguna dalam bentuk rating untuk
 
 Rumus weighted rating:
 
-\[
+$$
 \text{score} = \frac{v}{v + m} \times R + \frac{m}{m + v} \times C
-\]
+$$
 
-di mana:
-- \( v \) = jumlah vote film,
-- \( R \) = rata-rata rating film,
-- \( m \) = threshold jumlah vote minimum,
-- \( C \) = rata-rata rating seluruh film.
+$$
+\text{di mana:}
+\[
+\begin{cases}
+v = \text{jumlah vote film}, \\
+R = \text{rata-rata rating film}, \\
+m = \text{threshold jumlah vote minimum}, \\
+C = \text{rata-rata rating seluruh film}.
+\end{cases}
+\]
+$$
+
 
 Film dengan skor tertinggi direkomendasikan sebagai top-N film terbaik.
 
@@ -241,11 +248,20 @@ $$
 
 2. **Korelasi Spearman (Collaborative Filtering)**  
    Digunakan untuk mengukur hubungan antara rating asli (`vote_average`) dengan skor weighted rating (`score`) yang dihitung menggunakan formula IMDb. Korelasi Spearman menilai seberapa kuat hubungan monotonic antara dua variabel. Nilai korelasi berkisar dari -1 sampai 1, dengan nilai mendekati 1 menunjukkan korelasi positif yang kuat.  
-   Formula:  
-   \[
-   \rho = 1 - \frac{6 \sum d_i^2}{n (n^2 - 1)}
-   \]  
-   di mana \(d_i\) adalah perbedaan peringkat antara dua variabel untuk item ke-i dan \(n\) adalah jumlah data.
+   Formula:
+   
+$$
+\rho = 1 - \frac{6 \sum d_i^2}{n (n^2 - 1)}
+$$
+
+$$
+\text{di mana:} \quad
+\begin{cases}
+d_i = \text{perbedaan peringkat antara dua variabel untuk item ke-}~i, \\
+n = \text{jumlah data}.
+\end{cases}
+$$
+
 
 ### Hasil Evaluasi
 
