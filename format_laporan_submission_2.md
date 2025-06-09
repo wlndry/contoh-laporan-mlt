@@ -164,12 +164,59 @@ Tahapan data preparation dalam proyek ini dilakukan secara sistematis untuk mema
 - Penanganan nilai kosong dalam teks penting untuk menjaga kompatibilitas dengan metode NLP (Natural Language Processing) seperti TF-IDF Vectorization.
 
 
-## Modeling
-Tahapan ini membahas mengenai model sisten rekomendasi yang Anda buat untuk menyelesaikan permasalahan. Sajikan top-N recommendation sebagai output.
+## Modeling and Result
 
-**Rubrik/Kriteria Tambahan (Opsional)**: 
-- Menyajikan dua solusi rekomendasi dengan algoritma yang berbeda.
-- Menjelaskan kelebihan dan kekurangan dari solusi/pendekatan yang dipilih.
+### Sistem Rekomendasi yang Dibuat
+
+Dalam proyek ini, dibuat dua sistem rekomendasi film menggunakan pendekatan algoritma yang berbeda, yaitu **Content-Based Filtering** dan **Collaborative Filtering**. Kedua metode ini bertujuan untuk memberikan rekomendasi film yang relevan dan berkualitas kepada pengguna berdasarkan karakteristik film dan interaksi pengguna.
+
+---
+
+### 1. Content-Based Filtering
+
+Content-Based Filtering merekomendasikan film berdasarkan kemiripan fitur deskriptif film, seperti genre, keywords, sinopsis, pemeran, dan sutradara. Sistem ini membangun profil film dan menghitung kemiripan antar film menggunakan teknik vektorisasi teks dan cosine similarity. Dengan pendekatan ini, rekomendasi yang diberikan akan mirip dengan film yang sudah diketahui pengguna.
+
+**Kelebihan**:
+- Tidak memerlukan data interaksi pengguna yang banyak.
+- Dapat memberikan rekomendasi untuk film baru yang belum memiliki rating (cold start item).
+
+**Kekurangan**:
+- Terbatas pada fitur film yang tersedia, sehingga kurang mampu menangkap preferensi pengguna secara mendalam.
+- Rentan menghasilkan rekomendasi yang homogen (serupa) dan kurang beragam.
+
+**Contoh Output Top-5 Rekomendasi (Content-Based):**
+
+
+---
+
+### 2. Collaborative Filtering
+
+Collaborative Filtering menggunakan interaksi pengguna dalam bentuk rating untuk merekomendasikan film. Dalam implementasi ini, digunakan weighted rating berdasarkan formula IMDB yang menggabungkan rata-rata rating film dan jumlah suara, sehingga film yang populer dan berkualitas tinggi mendapat skor lebih tinggi.
+
+Rumus weighted rating:
+
+\[
+\text{score} = \frac{v}{v + m} \times R + \frac{m}{m + v} \times C
+\]
+
+di mana:
+- \( v \) = jumlah vote film,
+- \( R \) = rata-rata rating film,
+- \( m \) = threshold jumlah vote minimum,
+- \( C \) = rata-rata rating seluruh film.
+
+Film dengan skor tertinggi direkomendasikan sebagai top-N film terbaik.
+
+**Kelebihan**:
+- Mempertimbangkan penilaian kolektif pengguna, sehingga rekomendasi lebih objektif.
+- Dapat merekomendasikan film yang sangat disukai komunitas.
+
+**Kekurangan**:
+- Membutuhkan data rating pengguna yang cukup banyak.
+- Rentan terhadap masalah cold start untuk film baru dengan sedikit rating.
+
+**Contoh Output Top-5 Rekomendasi (Collaborative Filtering):**
+
 
 ## Evaluation
 Pada bagian ini Anda perlu menyebutkan metrik evaluasi yang digunakan. Kemudian, jelaskan hasil proyek berdasarkan metrik evaluasi tersebut.
