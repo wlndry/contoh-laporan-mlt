@@ -1,42 +1,69 @@
-# Laporan Proyek Machine Learning - Nama Anda
+# Laporan Proyek Machine Learning - Wulandari
 
 ## Project Overview
 
-Pada bagian ini, Kamu perlu menuliskan latar belakang yang relevan dengan proyek yang diangkat.
+Dalam era informasi dan hiburan digital yang sangat berkembang pesat, pengguna layanan streaming seperti Netflix, Disney+, dan Amazon Prime sering kali dihadapkan pada ribuan pilihan film dan serial. Banyaknya pilihan ini justru dapat membuat pengguna kewalahan dalam mengambil keputusan. Berdasarkan studi yang dilakukan oleh Nielsen, lebih dari 60% pengguna merasa frustrasi karena kesulitan memilih konten yang relevan dengan preferensi mereka [1]. Oleh karena itu, sistem rekomendasi menjadi kebutuhan penting untuk membantu pengguna menemukan konten yang tepat dengan lebih cepat dan efisien.
 
-**Rubrik/Kriteria Tambahan (Opsional)**:
-- Jelaskan mengapa dan bagaimana masalah tersebut harus diselesaikan
-- Menyertakan hasil riset terkait atau referensi. Referensi yang diberikan harus berasal dari sumber yang kredibel dan author yang jelas.
-- Format Referensi dapat mengacu pada penulisan sitasi [IEEE](https://journals.ieeeauthorcenter.ieee.org/wp-content/uploads/sites/7/IEEE_Reference_Guide.pdf), [APA](https://www.mendeley.com/guides/apa-citation-guide/) atau secara umum seperti [di sini](https://penerbitdeepublish.com/menulis-buku-membuat-sitasi-dengan-mudah/)
-- Sumber yang bisa digunakan [Scholar](https://scholar.google.com/)
+Proyek ini bertujuan untuk membangun **sistem rekomendasi film** yang dapat memberikan rekomendasi film secara otomatis dan personal menggunakan pendekatan **Content-Based Filtering** dan **Collaborative Filtering**. Dataset yang digunakan adalah **TMDB 5000 Movie Metadata** dari Kaggle, yang menyediakan informasi kaya mengenai film, termasuk genre, sinopsis (overview), kata kunci, kru, pemeran, serta skor dan jumlah suara dari pengguna.
 
+### Mengapa Proyek Ini Penting?
+
+- **Meningkatkan Pengalaman Pengguna**: Sistem rekomendasi yang baik membantu pengguna menemukan film yang sesuai dengan selera mereka, sehingga meningkatkan engagement.
+- **Efisiensi dalam Penjelajahan Konten**: Pengguna tidak perlu mencari secara manual dalam ribuan film yang tersedia.
+- **Nilai Bisnis yang Tinggi**: Rekomendasi yang relevan mendorong retensi pengguna dan meningkatkan konversi serta pendapatan platform [2].
+
+### Relevansi Riset
+
+Banyak penelitian telah membuktikan bahwa sistem rekomendasi memiliki dampak langsung terhadap performa bisnis dan pengalaman pengguna:
+
+- Bobadilla et al. [3] menyebutkan bahwa sistem rekomendasi merupakan bagian integral dari layanan personalisasi modern dan mampu meningkatkan nilai tambah dalam pengambilan keputusan pengguna.
+- Ricci et al. [4] menekankan pentingnya menggabungkan berbagai pendekatan, seperti content-based dan collaborative filtering, untuk mengatasi kelemahan masing-masing metode secara individual.
+
+Dengan memanfaatkan data dari TMDB dan menerapkan dua metode rekomendasi yang berbeda, proyek ini menunjukkan bagaimana machine learning dapat diterapkan secara nyata untuk menyelesaikan permasalahan sehari-hari dalam skala industri.
+
+---
+
+**Referensi:**
+
+[1] Nielsen, "The struggle is real: How consumers navigate content overload," Nielsen Insights, 2016. [Online]. Available: https://www.nielsen.com/
+
+[2] Gómez-Uribe, C. A., & Hunt, N. (2016). "The Netflix Recommender System: Algorithms, Business Value, and Innovation." *ACM Transactions on Management Information Systems*, 6(4), 1–19. https://doi.org/10.1145/2843948
+
+[3] Bobadilla, J., Ortega, F., Hernando, A., & Gutiérrez, A. (2013). "Recommender systems survey." *Knowledge-Based Systems*, 46, 109–132. https://doi.org/10.1016/j.knosys.2013.03.012
+
+[4] Ricci, F., Rokach, L., & Shapira, B. (2015). *Recommender Systems Handbook*. Springer. ISBN: 978-1-4899-7636-3
+
+---
 ## Business Understanding
 
-Pada bagian ini, Anda perlu menjelaskan proses klarifikasi masalah.
+Di era digital saat ini, platform layanan streaming seperti Netflix, Disney+, dan Amazon Prime menyediakan ribuan judul film dan serial yang dapat diakses kapan saja. Namun, dengan begitu banyaknya pilihan, pengguna kerap merasa kewalahan dan mengalami kesulitan dalam memilih tontonan yang sesuai dengan preferensi mereka. Hal ini menimbulkan kebutuhan mendesak akan sistem rekomendasi yang dapat membantu pengguna menemukan film yang relevan dan menarik secara personal.
 
-Bagian laporan ini mencakup:
+Sistem rekomendasi yang efektif tidak hanya meningkatkan kenyamanan pengguna, tetapi juga dapat meningkatkan retensi pelanggan dan engagement di platform. Oleh karena itu, pengembangan sistem rekomendasi film menjadi aspek penting dalam industri hiburan digital.
 
 ### Problem Statements
 
-Menjelaskan pernyataan masalah:
-- Pernyataan Masalah 1
-- Pernyataan Masalah 2
-- Pernyataan Masalah n
+1. **Terlalu banyak pilihan film** yang menyebabkan pengguna kesulitan menemukan film yang sesuai dengan minat atau preferensinya.
+2. **Rekomendasi film belum cukup relevan** karena kurangnya pemanfaatan fitur metadata film seperti genre, sinopsis, aktor, dan sutradara.
+3. **Sistem rekomendasi berbasis satu pendekatan saja** (misalnya hanya popularitas) cenderung bias dan tidak personal bagi semua jenis pengguna.
 
 ### Goals
 
-Menjelaskan tujuan proyek yang menjawab pernyataan masalah:
-- Jawaban pernyataan masalah 1
-- Jawaban pernyataan masalah 2
-- Jawaban pernyataan masalah n
+1. **Membangun sistem rekomendasi film** yang dapat memberikan saran film relevan berdasarkan preferensi pengguna.
+2. **Mengintegrasikan metadata film** untuk memahami karakteristik konten dan menyesuaikannya dengan minat pengguna.
+3. **Menyediakan dua pendekatan sistem rekomendasi** untuk meningkatkan akurasi dan relevansi hasil rekomendasi.
 
-Semua poin di atas harus diuraikan dengan jelas. Anda bebas menuliskan berapa pernyataan masalah dan juga goals yang diinginkan.
+### Solution Approach
 
-**Rubrik/Kriteria Tambahan (Opsional)**:
-- Menambahkan bagian “Solution Approach” yang menguraikan cara untuk meraih goals. Bagian ini dibuat dengan ketentuan sebagai berikut: 
+Untuk mencapai tujuan di atas, proyek ini mengusulkan dua pendekatan utama dalam sistem rekomendasi:
 
-    ### Solution statements
-    - Mengajukan 2 atau lebih solution approach (algoritma atau pendekatan sistem rekomendasi).
+1. **Content-Based Filtering**  
+   Sistem rekomendasi ini memanfaatkan metadata dari film seperti overview, genre, keywords, pemeran utama, dan sutradara. Dengan menggunakan teknik pemrosesan teks seperti TF-IDF dan cosine similarity, sistem menghitung kemiripan antarfilm untuk merekomendasikan film yang mirip dengan film yang disukai pengguna.
+
+2. **Collaborative Filtering (Berbasis Popularitas)**  
+   Sistem ini merekomendasikan film berdasarkan data rating dan jumlah penonton (vote_count dan vote_average) menggunakan formula IMDb. Pendekatan ini membantu mengenali film-film populer dan berkualitas tinggi berdasarkan opini banyak pengguna, bukan hanya konten.
+
+Kedua pendekatan ini saling melengkapi: Content-Based membantu memberikan rekomendasi personal, sementara Collaborative Filtering memastikan kualitas dan popularitas film juga diperhitungkan.
+
 
 ## Data Understanding
 Paragraf awal bagian ini menjelaskan informasi mengenai jumlah data, kondisi data, dan informasi mengenai data yang digunakan. Sertakan juga sumber atau tautan untuk mengunduh dataset. Contoh: [UCI Machine Learning Repository](https://archive.ics.uci.edu/ml/datasets/Restaurant+%26+consumer+data).
