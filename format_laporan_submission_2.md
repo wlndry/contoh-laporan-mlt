@@ -162,13 +162,17 @@ Tahapan data preparation dalam proyek ini dilakukan secara sistematis untuk mema
 
 6. **Penanganan Missing Values pada Teks**  
    Untuk memastikan proses vektorisasi teks berjalan lancar, nilai kosong pada kolom deskriptif seperti `overview`, `genres`, `keywords`, `cast`, dan `crew` diisi dengan string kosong (`''`), sebagai tindakan tambahan setelah penghapusan data utama yang memiliki missing values.
+   
+7. **TF-IDF Vectorization** 
+   Langkah ini sangat penting dalam sistem Content-Based Filtering. Data dalam kolom description diubah menjadi vektor angka menggunakan TF-IDF (Term Frequency - Inverse Document Frequency). Tujuannya adalah untuk merepresentasikan setiap film sebagai vektor fitur berdasarkan kata-kata penting dalam deskripsinya. Kata-kata yang sering muncul dalam film tertentu namun jarang muncul di film lain akan memiliki bobot lebih tinggi. Teknik ini membantu menghitung kemiripan antarfilm (cosine similarity) berdasarkan konten, yang menjadi inti dari Content-Based Filtering. Tanpa TF-IDF, sistem tidak bisa menghitung hubungan semantik antarfilm berbasis teks, sehingga tidak akan dapat memberikan rekomendasi personal yang akurat berdasarkan deskripsi film.
 
 **Alasan Tahapan Data Preparation**:  
 - Penggabungan dan pemilihan kolom penting memastikan hanya data yang relevan diproses sehingga efisien dan fokus pada fitur yang berkontribusi dalam rekomendasi.  
 - Penghapusan missing values mencegah error dalam pemrosesan dan menjaga integritas data.  
 - Parsing data JSON menjadi teks memudahkan analisis teks dan penggunaan algoritma berbasis teks seperti TF-IDF.  
 - Penggabungan fitur deskriptif membuat model dapat memanfaatkan informasi lengkap secara simultan, meningkatkan kualitas rekomendasi content-based.  
-- Penanganan nilai kosong dalam teks penting untuk menjaga kompatibilitas dengan metode NLP (Natural Language Processing) seperti TF-IDF Vectorization.
+- Penanganan nilai kosong dalam teks penting untuk menjaga kompatibilitas dengan metode NLP (Natural Language Processing) seperti TF-IDF Vectorization.  
+- TF-IDF Vectorization memungkinkan sistem mengenali kata-kata penting dalam deskripsi film dan menghitung kemiripan antarfilm menggunakan cosine similarity, sehingga model dapat memberikan rekomendasi yang akurat dan relevan berdasarkan konten.
 
 
 ## Modeling and Result
