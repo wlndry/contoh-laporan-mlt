@@ -152,8 +152,9 @@ Evaluasi model dilakukan menggunakan metrik klasifikasi yaitu **akurasi**, **pre
 
 - **F1-score**:  
   $$
-  F1\text{-score} = 2 \times \frac{Precision \times Recall}{Precision + Recall}
+  F_1\text{-score} = 2 \times \frac{Precision \times Recall}{Precision + Recall}
   $$
+
 
 ### Hasil Evaluasi
 
