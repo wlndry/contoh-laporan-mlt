@@ -122,15 +122,22 @@ Sementara itu, dataset `credits` tidak memiliki nilai kosong, tetapi kolom `cast
 
 ### Insight dan Exploratory Data Analysis (EDA)
 
-Untuk memahami karakteristik data lebih lanjut, dilakukan beberapa proses eksplorasi data awal, seperti:
+Untuk memahami karakteristik data secara menyeluruh, dilakukan sejumlah tahapan eksplorasi data awal yang mencakup teknik visualisasi serta analisis mendalam terhadap variabel-variabel penting. Adapun proses EDA yang dilakukan meliputi:
 
-- Visualisasi distribusi genre film dan popularitasnya.
-- Analisis jumlah karakter dalam sinopsis (`overview`).
-- Korelasi antara fitur numerik seperti `budget`, `revenue`, `vote_average`, dan `popularity`.
-- Identifikasi aktor dan sutradara yang paling sering muncul dalam film.
-- Deteksi film dengan pendapatan dan rating tertinggi.
+#### 1. Distribusi Panjang Overview Film
+![image](https://github.com/user-attachments/assets/7d24e049-12ce-4361-9ae0-b72eb9f9c6ad)
 
-Hasil dari EDA ini memberikan insight penting terhadap bagaimana film dikelompokkan berdasarkan genre atau popularitas, dan juga mengungkap variabel apa saja yang berpotensi berpengaruh terhadap sistem rekomendasi film. Data juga menunjukkan adanya bias distribusi pada genre tertentu seperti Drama dan Action yang mendominasi dataset.
+Visualisasi histogram menunjukkan bahwa mayoritas film memiliki overview (sinopsis) dengan panjang **20 hingga 60 kata**, dengan puncak frekuensi sekitar **25–30 kata**. Distribusi ini bersifat *right-skewed*, mengindikasikan bahwa overview panjang (di atas 100 kata) sangat jarang. Hal ini mencerminkan praktik umum dalam industri film yang cenderung menyajikan deskripsi singkat namun informatif.
+
+#### 2. Distribusi Rating Rata-Rata Film
+![image](https://github.com/user-attachments/assets/ab272cd0-cddd-4e67-9ed8-90f3ef782d88)
+
+Rating film rata-rata tersebar membentuk pola distribusi **normal** dengan puncak pada kisaran rating **6 hingga 7**. Sebagian besar film memperoleh rating sedang hingga tinggi, dan hanya sedikit yang mendapat rating ekstrem (sangat rendah atau sangat tinggi). Ini menunjukkan kecenderungan penilaian yang moderat dan memberi indikasi **stabilitas dalam kualitas film** menurut penilaian penonton atau kritikus.
+
+#### 3. Sutradara dengan Jumlah Film Terbanyak
+![image](https://github.com/user-attachments/assets/f2463d92-0e71-48d1-8797-bd7d1046d5ed)
+
+Analisis frekuensi menunjukkan bahwa **Steven Spielberg** merupakan sutradara dengan jumlah film terbanyak dalam dataset, yakni sebanyak **27 film**. Diikuti oleh **Woody Allen**, **Clint Eastwood**, dan **Martin Scorsese** dengan lebih dari 20 film. Hal ini menyoroti kontribusi besar dari sutradara-sutradara produktif terhadap industri film dan menandakan bahwa keberadaan sutradara tertentu bisa menjadi **indikator penting dalam sistem rekomendasi film**.
 
 
 
@@ -185,6 +192,7 @@ Content-Based Filtering merekomendasikan film berdasarkan kemiripan fitur deskri
 - Rentan menghasilkan rekomendasi yang homogen (serupa) dan kurang beragam.
 
 **Contoh Output Top-5 Rekomendasi (Content-Based):**
+![image](https://github.com/user-attachments/assets/df30ea2a-5661-4f8b-a818-28d93812aac7)
 
 
 ---
@@ -223,6 +231,8 @@ Film dengan skor tertinggi direkomendasikan sebagai top-N film terbaik.
 - Rentan terhadap masalah cold start untuk film baru dengan sedikit rating.
 
 **Contoh Output Top-5 Rekomendasi (Collaborative Filtering):**
+![image](https://github.com/user-attachments/assets/3448b490-0465-4ee1-b603-db908aafa1d3)
+
 
 
 ## Evaluation
