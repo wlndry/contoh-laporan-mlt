@@ -67,33 +67,71 @@ Kedua pendekatan ini saling melengkapi: Content-Based membantu memberikan rekome
 
 ## Data Understanding
 
-Dataset yang digunakan dalam proyek ini berasal dari TMDB (The Movie Database) dan berisi metadata film dengan total 4.803 entri dan 20 kolom fitur yang mencakup berbagai aspek film seperti anggaran, genre, tanggal rilis, popularitas, hingga rating dan ulasan pengguna. Secara keseluruhan, dataset memiliki jumlah data yang cukup besar untuk membangun model rekomendasi yang andal. Namun, terdapat beberapa kolom yang memiliki nilai kosong, misalnya kolom `homepage` yang memiliki 3.091 nilai kosong dan `tagline` dengan 844 nilai kosong, serta beberapa kolom lain seperti `overview`, `release_date`, dan `runtime` yang juga memiliki nilai hilang dalam jumlah kecil. Kondisi ini menandakan bahwa proses pembersihan dan penanganan missing values perlu dilakukan agar data siap digunakan untuk analisis dan pemodelan.
+Dataset yang digunakan dalam proyek ini berasal dari [TMDB (The Movie Database)](https://www.kaggle.com/datasets/tmdb/tmdb-movie-metadata), yang merupakan sumber metadata film berskala global. Dataset ini terdiri dari dua file utama, yaitu:
 
-Dataset ini dapat diunduh melalui tautan berikut: [TMDB Movie Metadata Dataset](https://www.kaggle.com/datasets/tmdb/tmdb-movie-metadata).
+- `tmdb_5000_movies.csv`: berisi informasi metadata film seperti judul, genre, sinopsis, rating, dan popularitas.
+- `tmdb_5000_credits.csv`: berisi informasi mengenai pemeran (cast) dan kru (crew) dalam setiap film.
 
-Variabel-variabel utama dalam dataset ini meliputi:  
-- **budget**: Anggaran pembuatan film (dalam dolar).  
-- **genres**: Genre film yang dikategorikan (seperti Action, Drama, dll).  
-- **homepage**: URL situs resmi film (banyak yang kosong).  
-- **id**: ID unik setiap film.  
-- **keywords**: Kata kunci yang mendeskripsikan film.  
-- **original_language**: Bahasa asli film.  
-- **original_title**: Judul asli film.  
-- **overview**: Ringkasan atau sinopsis film.  
-- **popularity**: Skor popularitas film berdasarkan berbagai metrik.  
-- **production_companies**: Perusahaan produksi film.  
-- **production_countries**: Negara tempat produksi film.  
-- **release_date**: Tanggal rilis film.  
-- **revenue**: Pendapatan film (dalam dolar).  
-- **runtime**: Durasi film (dalam menit).  
-- **spoken_languages**: Bahasa yang digunakan dalam film.  
-- **status**: Status rilis film (contoh: Released).  
-- **tagline**: Kalimat singkat promosi film (banyak kosong).  
-- **title**: Judul film.  
-- **vote_average**: Rata-rata rating pengguna.  
-- **vote_count**: Jumlah suara/rating yang diberikan.
+Kedua file ini memiliki jumlah data yang sama, yaitu **4.803 entri**, namun berbeda dalam jumlah dan jenis kolom. Dataset ini cukup besar dan kaya akan fitur, sehingga sangat cocok digunakan untuk membangun sistem rekomendasi film yang efektif.
 
-Untuk memahami karakteristik data lebih dalam, dilakukan eksplorasi data seperti visualisasi distribusi genre, analisis panjang sinopsis, dan pemeriksaan korelasi antar fitur numerik. Hasil eksplorasi membantu mengidentifikasi pola dan anomali pada data, yang menjadi dasar penting untuk tahap pemodelan sistem rekomendasi.
+Secara umum, kondisi data relatif baik, namun terdapat beberapa **missing values** terutama di kolom non-esensial. Contohnya:
+- `homepage`: 3.091 nilai kosong
+- `tagline`: 844 nilai kosong
+- `overview`: 3 nilai kosong
+- `release_date`: 1 nilai kosong
+- `runtime`: 2 nilai kosong
+
+Sementara itu, dataset `credits` tidak memiliki nilai kosong, tetapi kolom `cast` dan `crew` tersimpan dalam format string JSON yang memerlukan parsing terlebih dahulu agar bisa digunakan dalam analisis lebih lanjut.
+
+---
+
+### Sumber Dataset:
+- [TMDB Movie Metadata Dataset](https://www.kaggle.com/datasets/tmdb/tmdb-movie-metadata)
+
+---
+
+### Variabel pada `tmdb_5000_movies.csv`:
+- **budget**: Anggaran produksi film (USD).
+- **genres**: Daftar genre film (Action, Drama, dll).
+- **homepage**: Situs resmi film (jika tersedia).
+- **id**: ID unik film dalam database TMDB.
+- **keywords**: Kata kunci deskriptif film.
+- **original_language**: Bahasa asli film.
+- **original_title**: Judul asli sebelum translasi.
+- **overview**: Ringkasan atau sinopsis film.
+- **popularity**: Skor popularitas berdasarkan metrik TMDB.
+- **production_companies**: Nama perusahaan produksi.
+- **production_countries**: Negara tempat produksi dilakukan.
+- **release_date**: Tanggal rilis film.
+- **revenue**: Pendapatan film (USD).
+- **runtime**: Durasi film (menit).
+- **spoken_languages**: Bahasa yang digunakan dalam film.
+- **status**: Status rilis film (misalnya: Released).
+- **tagline**: Kalimat promosi singkat.
+- **title**: Judul resmi film.
+- **vote_average**: Rata-rata rating dari pengguna TMDB.
+- **vote_count**: Jumlah total suara/rating yang diberikan.
+
+### Variabel pada `tmdb_5000_credits.csv`:
+- **movie_id**: ID film, yang digunakan sebagai kunci penggabungan.
+- **title**: Judul film.
+- **cast**: Daftar aktor dan aktris dalam film (format JSON string).
+- **crew**: Informasi kru film, termasuk direktur, produser, penulis naskah, dsb (format JSON string).
+
+---
+
+### Insight dan Exploratory Data Analysis (EDA)
+
+Untuk memahami karakteristik data lebih lanjut, dilakukan beberapa proses eksplorasi data awal, seperti:
+
+- Visualisasi distribusi genre film dan popularitasnya.
+- Analisis jumlah karakter dalam sinopsis (`overview`).
+- Korelasi antara fitur numerik seperti `budget`, `revenue`, `vote_average`, dan `popularity`.
+- Identifikasi aktor dan sutradara yang paling sering muncul dalam film.
+- Deteksi film dengan pendapatan dan rating tertinggi.
+
+Hasil dari EDA ini memberikan insight penting terhadap bagaimana film dikelompokkan berdasarkan genre atau popularitas, dan juga mengungkap variabel apa saja yang berpotensi berpengaruh terhadap sistem rekomendasi film. Data juga menunjukkan adanya bias distribusi pada genre tertentu seperti Drama dan Action yang mendominasi dataset.
+
 
 
 ## Data Preparation
