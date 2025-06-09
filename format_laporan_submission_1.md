@@ -37,7 +37,15 @@ Dengan adanya model prediktif berbasis machine learning, profesional medis dapat
 ## Data Understanding
 Dataset diambil dari Kaggle: [Data Penyakit Diabetes](https://www.kaggle.com/datasets/sitirahmahbasri/data-penyakit-diabetes)
 
-### Variabel dalam dataset:
+**Jumlah data:**  
+Dataset terdiri dari 2.000 baris (entri) dan 9 kolom (fitur).
+
+**Kondisi data:**  
+- Tidak terdapat missing value (null) pada dataset.  
+- Tidak ditemukan data duplikat.  
+- Dari 9 kolom, 7 kolom bertipe integer dan 2 kolom bertipe float.
+
+**Uraian variabel dalam dataset:**
 - `Pregnancies`: Jumlah kehamilan
 - `Glucose`: Kadar glukosa
 - `BloodPressure`: Tekanan darah
@@ -47,6 +55,7 @@ Dataset diambil dari Kaggle: [Data Penyakit Diabetes](https://www.kaggle.com/dat
 - `DiabetesPedigreeFunction`: Riwayat diabetes keluarga
 - `Age`: Umur
 - `Outcome`: Label target (1: diabetes, 0: tidak)
+
 
 ### Exploratory Data Analysis (EDA)
 Dataset yang digunakan terdiri dari sembilan variabel, yaitu Pregnancies, Glucose, BloodPressure, SkinThickness, Insulin, BMI, DiabetesPedigreeFunction, Age, dan Outcome sebagai label target yang menunjukkan apakah seseorang mengidap diabetes atau tidak. Untuk memahami karakteristik data, dilakukan beberapa tahap eksplorasi data sebagai berikut.
