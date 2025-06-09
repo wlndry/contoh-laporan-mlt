@@ -141,25 +141,24 @@ Evaluasi model dilakukan menggunakan metrik klasifikasi yaitu **akurasi**, **pre
 
 ### Penjelasan Metrik Evaluasi
 
-- **Akurasi**: Mengukur seberapa sering model memprediksi kelas dengan benar.
+- **Akurasi**:  
   \[
   \text{Accuracy} = \frac{TP + TN}{TP + TN + FP + FN}
   \]
 
-- **Precision**: Mengukur ketepatan prediksi positif yang dilakukan oleh model.
+- **Precision**:  
   \[
   \text{Precision} = \frac{TP}{TP + FP}
   \]
 
-- **Recall**: Mengukur seberapa banyak data positif yang berhasil dikenali oleh model.
+- **Recall**:  
   \[
   \text{Recall} = \frac{TP}{TP + FN}
   \]
 
-- **F1-score**: Rata-rata harmonis dari precision dan recall, berguna saat terdapat trade-off antara keduanya.
+- **F1-score**:  
   \[
-  \text{F1-score} = 2 \cdot \frac{Precision \cdot Recall}{Precision + Recall}
-  \]
+  \te
 
 ### Hasil Evaluasi
 
@@ -188,6 +187,12 @@ Evaluasi model dilakukan menggunakan metrik klasifikasi yaitu **akurasi**, **pre
   - FN: 3
 
 Random Forest berhasil mengurangi kesalahan klasifikasi secara signifikan pada kedua kelas dibandingkan Logistic Regression.
+
+### Dampak terhadap Business Understanding
+
+- Model ini berhasil menjawab problem statement utama dengan memberikan klasifikasi diabetes yang akurat.
+- Goals membandingkan dan memilih model terbaik tercapai dengan Random Forest sebagai pilihan unggulan.
+- Solusi ini berdampak positif pada proses diagnosis dan pencegahan dini diabetes, yang dapat mengurangi biaya kesehatan dan meningkatkan kualitas pelayanan.
 
 ### Kesimpulan
 
