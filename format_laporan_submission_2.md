@@ -219,15 +219,38 @@ Film dengan skor tertinggi direkomendasikan sebagai top-N film terbaik.
 
 
 ## Evaluation
-Pada bagian ini Anda perlu menyebutkan metrik evaluasi yang digunakan. Kemudian, jelaskan hasil proyek berdasarkan metrik evaluasi tersebut.
 
-Ingatlah, metrik evaluasi yang digunakan harus sesuai dengan konteks data, problem statement, dan solusi yang diinginkan.
+### Metrik Evaluasi yang Digunakan
 
-**Rubrik/Kriteria Tambahan (Opsional)**: 
-- Menjelaskan formula metrik dan bagaimana metrik tersebut bekerja.
+Pada proyek ini, digunakan dua metrik evaluasi utama yang disesuaikan dengan masing-masing pendekatan sistem rekomendasi:
 
-**---Ini adalah bagian akhir laporan---**
+1. **Precision dan Recall (Content-Based Filtering)**  
+   Precision mengukur seberapa banyak rekomendasi yang relevan dari seluruh rekomendasi yang diberikan, sedangkan recall mengukur seberapa banyak rekomendasi yang relevan berhasil ditemukan dari seluruh film yang relevan.  
+   Formula:  
+   \[
+   \text{Precision} = \frac{\text{Jumlah rekomendasi relevan}}{\text{Jumlah total rekomendasi}}
+   \]  
+   \[
+   \text{Recall} = \frac{\text{Jumlah rekomendasi relevan}}{\text{Jumlah film relevan di dataset}}
+   \]  
+   Metrik ini penting untuk mengukur akurasi personalisasi rekomendasi berdasarkan kesamaan genre antara film yang direkomendasikan dan film asli yang diminati pengguna.
 
-_Catatan:_
-- _Anda dapat menambahkan gambar, kode, atau tabel ke dalam laporan jika diperlukan. Temukan caranya pada contoh dokumen markdown di situs editor [Dillinger](https://dillinger.io/), [Github Guides: Mastering markdown](https://guides.github.com/features/mastering-markdown/), atau sumber lain di internet. Semangat!_
-- Jika terdapat penjelasan yang harus menyertakan code snippet, tuliskan dengan sewajarnya. Tidak perlu menuliskan keseluruhan kode project, cukup bagian yang ingin dijelaskan saja.
+2. **Korelasi Spearman (Collaborative Filtering)**  
+   Digunakan untuk mengukur hubungan antara rating asli (`vote_average`) dengan skor weighted rating (`score`) yang dihitung menggunakan formula IMDb. Korelasi Spearman menilai seberapa kuat hubungan monotonic antara dua variabel. Nilai korelasi berkisar dari -1 sampai 1, dengan nilai mendekati 1 menunjukkan korelasi positif yang kuat.  
+   Formula:  
+   \[
+   \rho = 1 - \frac{6 \sum d_i^2}{n (n^2 - 1)}
+   \]  
+   di mana \(d_i\) adalah perbedaan peringkat antara dua variabel untuk item ke-i dan \(n\) adalah jumlah data.
+
+### Hasil Evaluasi
+
+- Pada Content-Based Filtering, model menunjukkan **precision** dan **recall** sebesar 1.0 untuk contoh film *The Avengers*, yang berarti semua rekomendasi yang diberikan sangat relevan dengan film aslinya berdasarkan kesamaan genre.  
+- Pada Collaborative Filtering, korelasi Spearman antara rating pengguna dan skor weighted rating sebesar **0.98**, menunjukkan bahwa skor yang dihitung sangat konsisten dengan rating asli, sehingga sistem mampu merekomendasikan film yang populer dan berkualitas.
+
+### Kesimpulan
+
+Evaluasi ini mengonfirmasi bahwa kedua pendekatan sistem rekomendasi mampu menjawab problem statement utama, yaitu mengatasi kesulitan pengguna dalam menemukan film yang sesuai preferensi mereka. Content-Based Filtering menyediakan rekomendasi personal dengan memanfaatkan metadata film secara efektif, sedangkan Collaborative Filtering memastikan rekomendasi mempertimbangkan popularitas dan kualitas yang diakui oleh komunitas pengguna.
+
+Dengan mencapai goals membangun sistem rekomendasi yang relevan dan personal, serta mengintegrasikan dua metode yang saling melengkapi, solusi ini memberikan dampak positif terhadap bisnis. Pengguna mendapatkan rekomendasi yang lebih akurat dan terpercaya, yang berpotensi meningkatkan kepuasan, loyalitas, dan waktu interaksi di platform. Oleh karena itu, solusi yang diimplementasikan tidak hanya menyelesaikan tantangan teknis, tetapi juga memberikan nilai tambah signifikan dari sisi bisnis dan pengalaman pengguna.
+
